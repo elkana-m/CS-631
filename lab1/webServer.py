@@ -14,7 +14,7 @@ while True:
     print('Ready to serve...')
     connectionSocket, addr = serverSocket.accept()
     try:
-        message = serverSocket.recv(1024).decode()
+        message = connectionSocket.recv(1024).decode()
         filename = message.split()[1]
 
         f = open(filename[1:])
@@ -39,5 +39,5 @@ while True:
         
         connectionSocket.close()
 
-    serverSocket.close()
-    sys.exit()#Terminate the program after sending the corresponding data
+serverSocket.close()
+sys.exit()#Terminate the program after sending the corresponding data
